@@ -2,7 +2,9 @@ package com.yuichi.passwordlistmanager
 
 import android.content.ContentValues
 import android.content.DialogInterface
+import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
@@ -26,6 +28,8 @@ class Main2Activity : AppCompatActivity() {
 
         val sql = "select * from IDandPass"
         val cur = db?.rawQuery(sql,null)
+
+        var s:String
         cur?.use {c->
             while (c.moveToNext()){
                 //val key = c.getInt(c.getColumnIndex("_id"))
@@ -35,10 +39,12 @@ class Main2Activity : AppCompatActivity() {
                 val password = c.getString(c.getColumnIndex("Password"))
 
                 if(name.equals(key)){
-                    findViewById<TextView>(R.id.txtID2).text=id
+                    findViewById<TextView>(R.id.txtID2).setText(id)
                     findViewById<TextView>(R.id.txtName2).text=name
                     findViewById<TextView>(R.id.txtURL).text=url
                     findViewById<TextView>(R.id.txtPassword2).text=password
+
+                    s=name
                 }
 
             }
@@ -77,6 +83,14 @@ class Main2Activity : AppCompatActivity() {
             })
             dialog.setNegativeButton("キャンセル",null)
             dialog.show()
+        }
+
+
+        //外部のWebサイトへ
+        findViewById<Button>(R.id.btnLink).setOnClickListener {
+            val url = Uri.parse(findViewById<TextView>(R.id.txtURL).text.toString())
+            val intent = Intent(Intent.ACTION_VIEW,url)
+            startActivity(intent)
         }
     }
 }
