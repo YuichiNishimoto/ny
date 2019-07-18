@@ -1,9 +1,11 @@
 package com.yuichi.passwordlistmanager
 
 import android.content.ContentValues
+import android.content.DialogInterface
 import android.database.sqlite.SQLiteDatabase
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -43,7 +45,9 @@ class Main2Activity : AppCompatActivity() {
 
         }
 
-        findViewById<Button>(R.id.btnDetaile) .setOnClickListener{
+
+        //更新ボタン
+        findViewById<Button>(R.id.btnUpDateGo) .setOnClickListener{
 
             Toast.makeText(this,intent.getStringExtra("key"), Toast.LENGTH_SHORT).show()
             val txt =findViewById<EditText>(R.id.edtHenkou).text.toString()
@@ -53,6 +57,26 @@ class Main2Activity : AppCompatActivity() {
 
             dbw?.update("IDandPass",update,"Name = ?", arrayOf(findViewById<TextView>(R.id.txtName2).text.toString()))
 
+        }
+
+
+        //削除ボタン
+        findViewById<Button>(R.id.btnDerete).setOnClickListener {
+            val edittext = EditText(this)
+            val dialog = AlertDialog.Builder(this)
+            dialog.setTitle("削除しますか？")
+            dialog.setPositiveButton("OK",DialogInterface.OnClickListener{_,_->
+
+                //削除動作（後で書く）
+
+                Toast.makeText(this,"1件削除されました",Toast.LENGTH_SHORT).show()
+
+                setResult(1)
+                finish()
+
+            })
+            dialog.setNegativeButton("キャンセル",null)
+            dialog.show()
         }
     }
 }

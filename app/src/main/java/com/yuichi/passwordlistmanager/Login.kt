@@ -62,10 +62,5 @@ class Login : AppCompatActivity() {
             }
         }
 
-
-        findViewById<Button>(R.id.btnTest).setOnClickListener {
-            Toast.makeText(this,p1.pswd.toString(),Toast.LENGTH_SHORT).show()
-            //findViewById<TextView>(R.id.txtTest).text=p2.pswd.toString()
-        }
     }
 }

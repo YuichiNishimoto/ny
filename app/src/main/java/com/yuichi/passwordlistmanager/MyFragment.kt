@@ -32,10 +32,8 @@ class MyFragment:Fragment(){
 
         view.findViewById<Button>(R.id.btnZenkenSakuzyo).setOnClickListener {
 
-            val myedit = EditText(context)
             val dialog = AlertDialog.Builder(context!!)
             dialog.setTitle("全て削除しますか？")
-            //dialog.setView(myedit)
             dialog.setPositiveButton("OK", DialogInterface.OnClickListener { _, _ ->
                 // OKボタン押したときの処理
                 val dbforderete = MyDatabaseOpenHelper(context).writableDatabase

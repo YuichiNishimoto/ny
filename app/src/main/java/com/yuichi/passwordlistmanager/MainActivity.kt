@@ -16,6 +16,8 @@ import java.net.URL
 
 data class dataarray(val name:String,val url:String,val id:String,val password:String)
 
+var flag = false  //ログイン用フラグ
+
 class MainActivity : AppCompatActivity() {
 
     private var drawerToggle:ActionBarDrawerToggle? = null
@@ -58,21 +60,20 @@ class MainActivity : AppCompatActivity() {
 
     override fun onRestart() {
         super.onRestart()
-        //Toast.makeText(this,"あ",Toast.LENGTH_SHORT).show()
         reroad()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_main)
-        /*val intent=Intent(this,Login::class.java)
-        startActivityForResult(intent,1)*/
-        val intent = Intent(this,Login::class.java)
-        startActivityForResult(intent,1)
+
+        if(!flag){
+            val intent = Intent(this,Login::class.java)
+            startActivityForResult(intent,1)
+            flag=true //次回のonCreateからはログイン不要
+        }
+
         setViews()
         reroad()
-
-
     }
 
     fun reroad(){
@@ -91,7 +92,6 @@ class MainActivity : AppCompatActivity() {
 
         cur?.use { c->
             while (c.moveToNext()){
-                //val key = c.getInt(c.getColumnIndex("_id"))
                 val name = c.getString(c.getColumnIndex("Name"))
                 val url = c.getString(c.getColumnIndex("URL"))
                 val id = c.getString(c.getColumnIndex("ID"))
@@ -100,7 +100,6 @@ class MainActivity : AppCompatActivity() {
                 data=dataarray(name,url,id,password)
 
                 list.add(data)
-
 
                 listview.adapter=MyAdapter(this,list)
 
@@ -111,21 +110,10 @@ class MainActivity : AppCompatActivity() {
         listview.setOnItemClickListener{parent,view,position,id->
 
             val item=listview.adapter.getItem(position) as dataarray
-            Toast.makeText(this,item.name,Toast.LENGTH_SHORT).show()
 
             val intent = Intent(this,Main2Activity::class.java)
             intent.putExtra("key",item.name)
-            startActivity(intent)
-
-
-
-            //Toast.makeText(this,,Toast.LENGTH_SHORT).show()
-            /*val intent=Intent(this,Main2Activity::class.java)
-            intent.putExtra("list",la2)
-            startActivity(intent)
-            intent.putExtra()
-            startActivity(intent)*/
-
+            startActivityForResult(intent,1)
         }
     }
 
