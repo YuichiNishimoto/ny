@@ -26,7 +26,7 @@ class UseSQLite : AppCompatActivity() {
         findViewById<Button>(R.id.btnAdd).setOnClickListener {
             val values= ContentValues()
 
-            Toast.makeText(this,findViewById<TextView>(R.id.edtName).toString(),Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"１件追加されました",Toast.LENGTH_SHORT).show()
             values.put("Name",findViewById<EditText>(R.id.edtName).text.toString())
             values.put("URL",findViewById<EditText>(R.id.edtURL).text.toString())
             values.put("ID",findViewById<EditText>(R.id.edtID).text.toString())

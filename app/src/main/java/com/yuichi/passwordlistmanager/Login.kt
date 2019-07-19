@@ -58,7 +58,7 @@ class Login : AppCompatActivity() {
                 setResult(1)
                 finish()
             }else{
-                Toast.makeText(this,nyuuryoku.toString(),Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"パスワードが違います",Toast.LENGTH_SHORT).show()
             }
         }
 

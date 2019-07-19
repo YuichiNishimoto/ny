@@ -16,15 +16,6 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="64dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
-    <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtName2"
-            android:layout_marginEnd="8dp" android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/guideline8"
-            app:layout_constraintEnd_toStartOf="@+id/guideline9" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
     <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
                                           android:id="@+id/guideline8"
                                           android:orientation="horizontal"
@@ -37,41 +28,6 @@
                                           android:id="@+id/guideline10"
                                           android:orientation="horizontal"
                                           app:layout_constraintGuide_percent="0.25"/>
-    <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtID2" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/txtPassword2" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="@+id/guideline9"
-            android:layout_marginStart="8dp" android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
-    <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtPassword2"
-            app:layout_constraintTop_toTopOf="@+id/txtName2" app:layout_constraintBottom_toBottomOf="@+id/txtName2"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toStartOf="@+id/guideline9" android:layout_marginStart="8dp"/>
-    <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtURL" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="@+id/guideline10" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline8" app:layout_constraintStart_toStartOf="@+id/guideline9"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
-    <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/edtHenkou" app:layout_constraintBottom_toBottomOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="@+id/guideline8"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"/>
     <Button
             android:text="削除"
             android:layout_width="wrap_content"
@@ -87,8 +43,61 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnLink"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/txtName2" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline8" app:layout_constraintEnd_toStartOf="@+id/guideline9"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnUpDateGo"
+            app:layout_constraintStart_toStartOf="@+id/guideline9" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtURL"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/txtID2"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="64dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtName2"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/txtPassword2"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="64dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtID2"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/txtURL" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="64dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtPassword2" app:layout_constraintHorizontal_bias="0.478"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtName2" android:layout_marginTop="32dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="32dp" android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+    <TextView
+            android:text="ID："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView6"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="@+id/txtID2"
+            android:labelFor="@id/txtID2" android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/txtID2"/>
+    <TextView
+            android:text="パスワード："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="@+id/txtPassword2" app:layout_constraintEnd_toStartOf="@+id/txtPassword2"
+            android:layout_marginEnd="8dp" android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:labelFor="@id/txtPassword2"/>
 </android.support.constraint.ConstraintLayout>
