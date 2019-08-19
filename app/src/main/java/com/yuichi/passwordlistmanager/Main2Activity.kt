@@ -30,12 +30,10 @@ class Main2Activity : AppCompatActivity() {
         val sql = "select * from IDandPass"
         val cur = db?.rawQuery(sql,null)
 
-        var s:String
         cur?.use {c->
             while (c.moveToNext()){
                 //val key = c.getInt(c.getColumnIndex("_id"))
                 val name = c.getString(c.getColumnIndex("Name"))
-                s=name
                 val url = c.getString(c.getColumnIndex("URL"))
                 val id = c.getString(c.getColumnIndex("ID"))
                 val password = c.getString(c.getColumnIndex("Password"))
@@ -53,15 +51,10 @@ class Main2Activity : AppCompatActivity() {
         //更新ボタン
         findViewById<Button>(R.id.btnUpDateGo) .setOnClickListener{
 
-            /*val intent = Intent(this,RecordUpdate::class.java)
-            startActivityForResult(intent,1)*/
-
-            //Toast.makeText(this,intent.getStringExtra("key"), Toast.LENGTH_SHORT).show()
             val name =findViewById<TextView>(R.id.txtName2).text.toString()
             val id =findViewById<EditText>(R.id.txtID2).text.toString()
             val password =findViewById<EditText>(R.id.txtPassword2).text.toString()
             val url =findViewById<EditText>(R.id.txtURL).text.toString()
-
 
             val update = ContentValues().apply {
                 put("Name",name)
@@ -78,7 +71,7 @@ class Main2Activity : AppCompatActivity() {
 
         //削除ボタン
         findViewById<Button>(R.id.btnDerete).setOnClickListener {
-            //val edittext = EditText(this)
+
             val dialog = AlertDialog.Builder(this)
             dialog.setTitle("削除しますか？")
             dialog.setPositiveButton("OK",DialogInterface.OnClickListener{_,_->
